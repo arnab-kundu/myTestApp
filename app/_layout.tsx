@@ -4,6 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import "../global.css"; // Tailwind CSS
+
+// Ensure that reanimated's layout animations are enabled
 
 export const unstable_settings = {
   anchor: '(tabs)',
