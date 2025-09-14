@@ -1,5 +1,6 @@
+import RefreshButton from "@/components/RefreshButton";
 import React, { useEffect, useState } from "react";
-import { Button, ScrollView, Text, View } from "react-native"; // for React Native
+import { ScrollView, Text, TouchableOpacity, View } from "react-native"; // for React Native
 import "../../global.css"; // for Tailwind CSS
 
 // (reusing the User type we defined earlier)
@@ -38,10 +39,10 @@ const UsersList = () => {
     }, []);
 
     return (
-        <View className="flex-1 bg-gray-100 p-5">
+        <View className="flex-1 bg-red-200 p-5">
             {/* Refresh Button */}
             <View className="mb-4">
-                <Button title="🔄 Refresh Users" onPress={loadUsers} />
+                <RefreshButton onPress={loadUsers} />
             </View>
 
             {/* Loading State */}
@@ -64,6 +65,17 @@ const UsersList = () => {
                     ))}
                 </ScrollView>
             )}
+
+            {/* 2nd Refresh Button */}
+            <View className="mb-4  mt-4" >
+                <TouchableOpacity
+                    onPress={loadUsers}
+                    activeOpacity={0.7}
+                    className="bg-blue-500 rounded-xl py-3 px-4 items-center"
+                >
+                    <Text className="text-white font-semibold text-lg">🔄 Refresh Users</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
