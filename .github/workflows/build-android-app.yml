@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -41,15 +41,15 @@ jobs:
       - name: Build Android Folder
         run: npx expo prebuild --platform android
 
-      - name: Install Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: 17
-          distribution: adopt
-          cache: gradle
+      # - name: Install Java
+      #   uses: actions/setup-java@v4
+      #   with:
+      #     java-version: 17
+      #     distribution: adopt
+      #     cache: gradle
 
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
+      # - name: Validate Gradle wrapper
+      #   uses: gradle/wrapper-validation-action@v1
 
       - name: Build application
         run: |
