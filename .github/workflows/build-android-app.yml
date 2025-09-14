@@ -32,11 +32,11 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
 
-      - name: Install npx
-        uses: npm i -g npx@latest
+      # - name: Install npx
+      #   uses: npm i -g npx@latest
 
-      - name: Install Expo
-        uses: npx install -g expo@latest
+      # - name: Install Expo
+      #   uses: npx install -g expo@latest
 
       - name: Build Android Folder
         run: npx expo prebuild --platform android
