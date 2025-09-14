@@ -44,17 +44,20 @@ const UsersList = () => {
     return (
         <View className="flex-1 bg-red-200 p-5">
             {/* Refresh Button */}
-            <View className="mb-4">
+            <View testID="id_button_container" className="mb-4">
                 <RefreshButton onPress={loadUsers} />
             </View>
 
             {/* Loading State */}
             {loading ? (
-                <Text className="text-blue-500 text-center text-lg font-semibold">
+                <Text
+                    testID="id_loading"
+                    className="text-blue-500 text-center text-lg font-semibold"
+                >
                     Loading...
                 </Text>
             ) : (
-                <ScrollView className="space-y-3">
+                <ScrollView testID="id_user_list" className="space-y-3">
                     {users.map((user) => (
                         <View className="mt-2">
                             <View
@@ -74,8 +77,9 @@ const UsersList = () => {
             )}
 
             {/* 2nd Refresh Button */}
-            <View className="mb-4  mt-4">
+            <View testID="button_container" className="mb-4  mt-4">
                 <TouchableOpacity
+                    testID="id_refresh_button_2"
                     onPress={loadUsers}
                     activeOpacity={0.7}
                     className="bg-blue-500 rounded-xl py-3 px-4 items-center"
